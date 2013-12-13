@@ -1,0 +1,5 @@
+*.bak
+*.err
+*.exe
+*.o
+*.out
