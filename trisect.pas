@@ -49,6 +49,7 @@ for i := 1 to oc do begin
     str(t, s);
     str(i, ts);
     str(x:9:9, as);
+    if (x > 0) then as := '+' + as;
 
     ts := 'Step ' + ts + ':';
     s := s + #248;
