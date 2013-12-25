@@ -53,7 +53,7 @@ for i := 1 to oc do begin
 
     ts := 'Step ' + ts + ':';
     s := s + #248;
-    as := '| ' + as;
+    as := '| ' + as + #248;
 
     // print data about the current angle
     setcolor(Random(15)+1);
