@@ -2,7 +2,7 @@
 
 This small project was originally created for a maths lesson to demonstrate trisectioning an angle using only compass-and-straightedge constructions.
 You can read more about the problem at [Wikipedia](http://en.wikipedia.org/wiki/Angle_trisection).
-The original code was written by Nohcra and me.
+The original code was written by [@Nohcra](https://github.com/NohcRa) and me.
 
 # Installation
 
