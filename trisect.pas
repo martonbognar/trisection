@@ -4,6 +4,7 @@ var
 i, sz, n            : longint;  // i: loop variable, sz: numerator in the fraction, n: denominator in the fraction
 x                   : real;     // x: the fraction that gets multiplied with the original angle
 gd, gm              : integer;  // gd, gm: variables necessary for the graphical window
+io                  : byte;     // io: used for input checking
 angle, t, cx, oc    : integer;  // angle: the original angle, t: the calculated angle, cx: the width of the drawn pieslice, oc: the number of operations
 s, ts, as           : string;   // s: used to display the current angle, ts: used to display the current step, as: used to display the current inaccuracy
 
@@ -15,9 +16,24 @@ initgraph(gd, gm, '');
 detectgraph(gd, gm);
 
 write('Enter an angle in degrees: ');
-readln(angle);
+repeat
+   {$I-}
+   readln(angle);
+   {$I+}
+   io:=ioresult;
+   if io <> 0 then writeln('Please enter a valid number');
+   if (angle < 1) and (io = 0) then writeln('Please only enter positive values');
+until (io = 0) and (angle > 0);
+
 write('Enter the number of operations: ');
-readln(oc);
+repeat
+   {$I-}
+   readln(oc);
+   {$I+}
+   io:=ioresult;
+   if io <> 0 then writeln('Please enter a valid number');
+   if (oc < 1) and (io = 0)  then writeln('Please only enter positive values');
+until (io = 0) and (oc > 0);
 
 writeln('Now look at the graph window application!');
 
@@ -85,6 +101,8 @@ for i := 1 to oc do begin
     end;
 
     delay(500);
+    
+    if i = oc then OutTextXY(1200, 200+20*i+20, 'This was the last step.');
 
 end;
 
